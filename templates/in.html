@@ -1,0 +1,32 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>SYSTEM RESPONSE Of VIBRATING SYSTEMs</title>
+        <body>
+        <div id="container">
+            <div class="title">
+                <h1>WELCOME</h1>
+                <p1>Input the desired value to begin computation.The deafult values will be used incase they are not changed.</p1>
+                <p2>If you want see more projects like this,contribute to this project</p2><br>
+            </div>
+            <div id="content">
+                <form method="post" action="{{ url_for('hello') }}">
+                  <input name="ch" value="1" type="radio"> Mass,Spring <br>
+                  <input name="ch" value="2" checked="checked" type="radio"> Mass,Spring,Damper<br>
+                  <label for="yourname">Stiffness:</label>
+                    <input name="stiff" value="12345" type="text"><br>
+                  <label for="youremail">Mass    :</label>
+                    <input name="mass" value="50" type="text"><br>
+                  <label for="yourname">Dampin Coeff:</label>
+                    <input name="dc" value="4.0" type="text"><br>
+                  <label for="youremail">Initial  D  :</label>
+                    <input name="x0" value="0" type="text"><br>
+                    <label for="yourname">Initial V:</label>
+                    <input name="v0" value="1" type="text"><br>
+                   <input type="submit">
+                </form>
+            </div>
+
+        </div>
+    
+
+</body></html>
