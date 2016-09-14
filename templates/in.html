@@ -1,53 +1,103 @@
 <html>
-<style>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <style>
 body {
-  padding-top:
-  text-align: center;
   font-family: monaco, monospace;
   background-size: cover;
 }
+
 h1, h2 {
   display: inline-block;
-  background: #fff;
+  background-color: white;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
 }
+
 h1 {
-  font-size: 30px
+  font-size: 30px;
 }
+
 h2 {
   font-size: 20px;
 }
-span {
-  background: #fd0;
-}
-</style>
 
-        <title>SYSTEM RESPONSE Of VIBRATING SYSTEMs</title>
-        <body>
-        <div id="container">
-            <div class="title" align=center>
-                <h1>WELCOME</h1><br>
-                <p1>Input the desired value to begin computation.The deafult values will be used incase they are not changed.</p1>
-                <p2>If you want see more projects like this,contribute to this project</p2><br>
-            </div>
-            <div id="content">
-                <form method="post" action="{{ url_for('hello') }}">
-                  <input name="ch" value="1" type="radio"> Mass,Spring <br>
-                  <input name="ch" value="2" checked="checked" type="radio"> Mass,Spring,Damper<br>
-                  <label for="yourname">Stiffness:</label>
-                    <input name="stiff" value="12345" type="text"><br>
-                  <label for="youremail">Mass    :</label>
-                    <input name="mass" value="50" type="text"><br>
-                  <label for="yourname">Dampin Coeff:</label>
-                    <input name="dc" value="4.0" type="text"><br>
-                  <label for="youremail">Initial  D  :</label>
-                    <input name="x0" value="0" type="text"><br>
-                    <label for="yourname">Initial V:</label>
-                    <input name="v0" value="1" type="text"><br>
-                   <input type="submit">
-                </form>
+span {
+  background-color: #ffdd00;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+}
+
+#warning {
+  color: #cc0000;
+}
+
+@media print {
+  #info {
+    color: red;
+  }
+}
+
+</style> <title>SYSTEM RESPONSE Of VIBRATING SYSTEMs</title>
+  </head>
+  <body>
+    <div id="container">
+      <div class="title" align="center">
+        <h1><br>
+        </h1>
+        <h1>WELCOME</h1>
+        <p><i id="warning">This app is implemented as an an experimental project</i></p>
+        <p><i id="info">This app is in ALPHA Stage,please do bear with me.</i></p>
+        <br>
+        <div style="text-align: left;"><p1>Input the desired value to begin
+            computation.The default values will be used in case they are not
+            changed.</p1><p2>If you want see more projects like this,contribute
+            to this project</p2></div>
+      </div>
+      <div id="content">
+        <form method="post" action="/hello/"> &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <input name="ch" value="1" type="radio">
+          &nbsp;&nbsp;&nbsp; Mass,Spring <br>
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <input name="ch"
+
+            value="2" checked="checked" type="radio"> &nbsp;&nbsp;&nbsp;
+          Mass,Spring,Damper<br>
+          <label for="yourname">&nbsp;&nbsp;&nbsp; <b>Stiffness:</b></label>&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input name="stiff"
+
+            value="12345" type="text"><br>
+          <label for="youremail">&nbsp;&nbsp;&nbsp; <b>Mass </b>:</label>&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <input name="mass" value="50"
+
+            type="text"><br>
+          <label for="yourname">&nbsp;&nbsp;&nbsp; <b>Damping Coefficient</b>:</label>&nbsp;
+          &nbsp;&nbsp; <input name="dc" value="4.0" type="text"><br>
+          <label for="youremail">&nbsp;&nbsp;&nbsp; <b>Initial Displacement</b>:</label>
+          &nbsp;&nbsp; <input name="x0" value="0" type="text"><br>
+          <label for="yourname">&nbsp;&nbsp;&nbsp; <b>Initial Velocity</b>:</label>&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; <input name="v0" value="1" type="text"><br>
+          <p> <input type="submit"></p><p>Due to some issues with this service,you will not be able to view the system response,unless you are signed in,I'm trying for a workaround</p><p><!--[if gte mso 9]><xml>
+ 
+<p class="MsoNormal"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;">If
+you want see more projects like this, contribute to this project.</span></p>
+
+<p class="MsoNormal"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;">Author:
+George Zacharia</span></p>
+
+<p class="MsoNormal"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;">Email:george.zcharia@gmail.com
+</span></p>
+
+<p class="MsoNormal"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;">Credits
+to Python, Flask, PythonAnywhere, and above all Google for making this possible</span></p>
+
+
+                </p></form>
             </div>
 
         </div>
-
-
 </body></html>
