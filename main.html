@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>GPA Calculator</title>
+		<h1>GPA Calculator for M.Tech Machine Design</h1>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function ShowHideDiv() {
+			    var sem = document.getElementById("sem");
+			    var sem1 = document.getElementById("sem1");
+			    sem1.style.display = sem.value == "sem1" ? "block" : "none";
+			    sem2.style.display = sem.value == "sem2" ? "block" : "none";
+			}
+		</script>
+		<span>Select semester</span>
+		<select id = "sem" onchange = "ShowHideDiv()">
+			<option value="none" selected>No Semester selected</option>
+			<option value="sem1">Semester 1</option>
+			<option value="sem2">Semester 2</option>
+		</select>
+		<hr />
+		<div id="sem1" style="display:none">
+			<table style="width:100%">
+				<tr>
+					<th>Paper code</th>
+					<th>Paper name</th>
+					<th>credits</th>
+				<tr>
+					<td>01MA6011</td>
+					<td>Special Functions, Partial Differential Equations And Tensors</td>
+					<td>3</td>
+					<td>
+						<form method="post" action="/sem1/">
+							<select name="sub1">
+								<option value="O">O</option>
+								<option value="A+">A+</option>
+								<option value="A">A</option>
+								<option value="B+">B+</option>
+							</select>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td>01ME6101</td>
+					<td>Advanced Theory of Vibration </td>
+					<td>4</td>
+                    <td>
+						<form method="post" action="/sem1/">
+							<select name="sub2">
+								<option value="O">O</option>
+								<option value="A+">A+</option>
+								<option value="A">A</option>
+								<option value="B+">B+</option>
+							</select>
+						</form>
+				</tr>
+			</table>
+
+          <p> <input type="submit"></p>
+		</div>
+		<div id="sem2" style="display:none">
+			<table style="width:100%">
+				<tr>
+					<th>Paper code</th>
+					<th>Paper name</th>
+					<th>credits</th>
+				</tr>
+				<tr>
+					<td>01MA6011</td>
+					<td>Advanced Theory of Mechanisms</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>01ME6101</td>
+					<td>Design of Pressure Vessels and Piping</td>
+					<td>4</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
