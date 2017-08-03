@@ -1,11 +1,13 @@
 gpa_calc
-flask app to calculate GPA
+flask app to calculate GPA for M.Tech Machine Design under APJ Abdul Kalam Technological University
 
 ==To do==
+
  >everything
  >cleanup htmls
+  >reuse <select>
   >improve layout
   >remove redundant code
 > post result on same page
 > overload function on python
-> document everything,well nobodt can see them so at last
+> document everything,well only pros like you can see them so, at last
