@@ -1,543 +1,564 @@
-<html>    
-  <head>        
-    <meta charset="UTF-8">        
+<html>
+  <head>
+    <meta charset="UTF-8">
     <title>GPA Calculator
-    </title>        
-    <h1 style="text-align: center" data-pgc>GPA Calculator for M.Tech Machine Design</h1>    
-  </head>    
-  <body>        
+    </title>
+    <h1 style="text-align: center" data-pgc>GPA Calculator for M.Tech Machine Design</h1>
+  </head>
+  <body>
 <script type="text/javascript">
 			function ShowHideDiv() {
 			    var sem = document.getElementById("sem");
 			    var sem1 = document.getElementById("sem1");
 			    var sem2 = document.getElementById("sem2");
 			    var sem3 = document.getElementById("sem3");
+			    var sem4 = document.getElementById("sem4");
 			    sem1.style.display = sem.value == "sem1" ? "block" : "none";
 			    sem2.style.display = sem.value == "sem2" ? "block" : "none";
 			    sem3.style.display = sem.value == "sem3" ? "block" : "none";
 			    sem4.style.display = sem.value == "sem4" ? "block" : "none";
+			    sgpa.style.display = sem.value == "none" ? "block" : "none";
 			}
-</script>        
-    <select name="sem" id="sem" onchange="ShowHideDiv()" style="border-left: 25 solid;padding-left: 15">            
+</script>
+    <select name="sem" id="sem" onchange="ShowHideDiv()" style="border-left: 25 solid;padding-left: 15">
       <option value="none" selected>Select semester
-      </option>            
+      </option>
       <option value="sem1">Semester 1
-      </option>            
+      </option>
       <option value="sem2">Semester 2
-      </option>            
+      </option>
       <option value="sem3">Semester 3
-      </option>            
+      </option>
       <option value="sem4">Semester 4
-      </option>        
-    </select>        
-    <hr />        
-    <div id="sem1" style="display:none">            
-      <form method="POST">                
-        <table style="width: 700">                    
-          <tr>                        
+      </option>
+    </select>
+    <hr>
+    <div id="sem1" style="display: none; width: 750px;">
+      <form method="POST">
+        <div id="container1" style="width:700;height:270">
+        <table style="width: 700">
+          <tr>
             <th style="text-align: left;padding-left: 15">Name
-            </th>                        
+            </th>
             <th>Credits
-            </th>                        
+            </th>
             <th>Grade
-            </th>                    
-          </tr>                    
-          <tr>                        
-            <td style="border-left: 25 solid;padding-left: 15px">Special Functions, Partial Differential Equations And Tensors</td>                        
-            <td style="text-align: center">3</td>                        <td>                            
-              <select name="sub1">                                
+            </th>
+          </tr>
+          <tr>
+            <td style="border-left: 25 solid;padding-left: 15px">Special Functions, Partial Differential Equations And Tensors</td>
+            <td style="text-align: center">3</td>                        <td>
+              <select name="sub1">
                 <option value="10">O
-                </option>                                
+                </option>
                 <option value="9">A+
-                </option>                                
+                </option>
                 <option value="8.5">A
-                </option>                                
+                </option>
                 <option value="8">B+
-                </option>                                
+                </option>
                 <option value="7">B
-                </option>                                
+                </option>
                 <option value="6">C
-                </option>                                
+                </option>
                 <option value="5">P
-                </option>                            
-              </select>                        </td>                    
-            <tr>                        
-              <td style="border-left: 25 solid;padding-left: 15px">Advanced Theory of Vibration</td>                        
-              <td style="text-align: center">4</td>                        <td>                            
-                <select name="sub2">                                
+                </option>
+              </select>                        </td>
+            <tr>
+              <td style="border-left: 25 solid;padding-left: 15px">Advanced Theory of Vibration</td>
+              <td style="text-align: center">4</td>                        <td>
+                <select name="sub2">
                   <option value="10">O
-                  </option>                                
+                  </option>
                   <option value="9">A+
-                  </option>                                
+                  </option>
                   <option value="8.5">A
-                  </option>                                
+                  </option>
                   <option value="8">B+
-                  </option>                                
+                  </option>
                   <option value="7">B
-                  </option>                                
+                  </option>
                   <option value="6">C
-                  </option>                                
+                  </option>
                   <option value="5">P
-                  </option>                            
-                </select>                        </td>                    
-            </tr>                    
-            <tr>                        
-              <td style="border-left: 25 solid;padding-left: 15px">Finite Element Method</td>                        
-              <td style="text-align: center">4</td>                        <td>                            
-                <select name="sub3">                                
+                  </option>
+                </select>                        </td>
+            </tr>
+            <tr>
+              <td style="border-left: 25 solid;padding-left: 15px">Finite Element Method</td>
+              <td style="text-align: center">4</td>                        <td>
+                <select name="sub3">
                   <option value="10">O
-                  </option>                                
+                  </option>
                   <option value="9">A+
-                  </option>                                
+                  </option>
                   <option value="8.5">A
-                  </option>                                
+                  </option>
                   <option value="8">B+
-                  </option>                                
+                  </option>
                   <option value="7">B
-                  </option>                                
+                  </option>
                   <option value="6">C
-                  </option>                                
+                  </option>
                   <option value="5">P
-                  </option>                            
-                </select>                        </td>                    
-              <tr>                    
-                <tr>                        
-                  <td style="border-left: 25 solid;padding-left: 15px">Continuum Mechanics</td>                        
-                  <td style="text-align: center">3</td>                        <td>                            
-                    <select name="sub4">                                
+                  </option>
+                </select>                        </td>
+              <tr>
+                <tr>
+                  <td style="border-left: 25 solid;padding-left: 15px">Continuum Mechanics</td>
+                  <td style="text-align: center">3</td>                        <td>
+                    <select name="sub4">
                       <option value="10">O
-                      </option>                                
+                      </option>
                       <option value="9">A+
-                      </option>                                
+                      </option>
                       <option value="8.5">A
-                      </option>                                
+                      </option>
                       <option value="8">B+
-                      </option>                                
+                      </option>
                       <option value="7">B
-                      </option>                                
+                      </option>
                       <option value="6">C
-                      </option>                                
+                      </option>
                       <option value="5">P
-                      </option>                            
-                    </select>                        </td>                    
-                  <tr>                    
-                    <tr>                        
-                      <td style="border-left: 25 solid;padding-left: 15px">Industrial Tribology</td>                        
-                      <td style="text-align: center">3</td>                        <td>                            
-                        <select name="sub5">                                
+                      </option>
+                    </select>                        </td>
+                  <tr>
+                    <tr>
+                      <td style="border-left: 25 solid;padding-left: 15px">Industrial Tribology</td>
+                      <td style="text-align: center">3</td>                        <td>
+                        <select name="sub5">
                           <option value="10">O
-                          </option>                                
+                          </option>
                           <option value="9">A+
-                          </option>                                
+                          </option>
                           <option value="8.5">A
-                          </option>                                
+                          </option>
                           <option value="8">B+
-                          </option>                                
+                          </option>
                           <option value="7">B
-                          </option>                                
+                          </option>
                           <option value="6">C
-                          </option>                                
+                          </option>
                           <option value="5">P
-                          </option>                            
-                        </select>                        </td>                    
-                      <tr>                    
-                        <tr>                        
-                          <td style="border-left: 25 solid;padding-left: 15px">Research Methodology</td>                        
-                          <td style="text-align: center">2</td>                        <td>                            
-                            <select name="sub6">                                
+                          </option>
+                        </select>                        </td>
+                      <tr>
+                        <tr>
+                          <td style="border-left: 25 solid;padding-left: 15px">Research Methodology</td>
+                          <td style="text-align: center">2</td>                        <td>
+                            <select name="sub6">
                               <option value="10">O
-                              </option>                                
+                              </option>
                               <option value="9">A+
-                              </option>                                
+                              </option>
                               <option value="8.5">A
-                              </option>                                
+                              </option>
                               <option value="8">B+
-                              </option>                                
+                              </option>
                               <option value="7">B
-                              </option>                                
+                              </option>
                               <option value="6">C
-                              </option>                                
+                              </option>
                               <option value="5">P
-                              </option>                            
-                            </select>                        </td>                    
-                          <tr>                    
-                            <tr>                        
-                              <td style="border-left: 25 solid;padding-left: 15px">Seminar I</td>                        
-                              <td style="text-align: center">2</td>                        <td>                            
-                                <select name="sub7">                                
+                              </option>
+                            </select>                        </td>
+                          <tr>
+                            <tr>
+                              <td style="border-left: 25 solid;padding-left: 15px">Seminar I</td>
+                              <td style="text-align: center">2</td>                        <td>
+                                <select name="sub7">
                                   <option value="10">O
-                                  </option>                                
+                                  </option>
                                   <option value="9">A+
-                                  </option>                                
+                                  </option>
                                   <option value="8.5">A
-                                  </option>                                
+                                  </option>
                                   <option value="8">B+
-                                  </option>                                
+                                  </option>
                                   <option value="7">B
-                                  </option>                                
+                                  </option>
                                   <option value="6">C
-                                  </option>                                
+                                  </option>
                                   <option value="5">P
-                                  </option>                            
-                                </select>                        </td>                    
-                              <tr>                    
-                                <tr>                        
-                                  <td style="border-left: 25 solid;padding-left: 15px">Machine Dynamics Lab</td>                        
-                                  <td style="text-align: center">1</td>                        <td>                            
-                                    <select name="sub8">                                
+                                  </option>
+                                </select>                        </td>
+                              <tr>
+                                <tr>
+                                  <td style="border-left: 25 solid;padding-left: 15px">Machine Dynamics Lab</td>
+                                  <td style="text-align: center">1</td>                        <td>
+                                    <select name="sub8">
                                       <option value="10">O
-                                      </option>                                
+                                      </option>
                                       <option value="9">A+
-                                      </option>                                
+                                      </option>
                                       <option value="8.5">A
-                                      </option>                                
+                                      </option>
                                       <option value="8">B+
-                                      </option>                                
+                                      </option>
                                       <option value="7">B
-                                      </option>                                
+                                      </option>
                                       <option value="6">C
-                                      </option>                                
+                                      </option>
                                       <option value="5">P
-                                      </option>                            
-                                    </select>                        </td>                    
-                                  <tr>                
-        </table>                
-        <input type="submit" value="Calculate GPA" formaction="/s1" style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">            
-      </form>        
-    </div>        
-    <div id="sem2" style="display:none">            
-      <form method="POST">                
-        <table style="width: 700">                    
-          <tr>                        
+                                      </option>
+                                    </select>                        </td>
+                                  <tr>
+        </table>
+        </div>
+        <input type="submit" value="Calculate GPA" formaction="/s1" style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
+      </form>
+    </div>
+    <div id="sem2" style="display: none; width: 750px;">
+      <form method="POST">
+      <div id="container2" style="width:700;height:270">
+        <table style="width: 700">
+          <tr>
             <th style="padding-left: 15;text-align: left">Name
-            </th>                        
+            </th>
             <th>Credits
-            </th>                        
+            </th>
             <th>Grade
-            </th>                    
-          </tr>                    
-          <tr>                        
-            <td style="border-left: 25 solid;padding-left: 15">Advanced Theory of Mechanisms </td>                        
-            <td style="text-align: center">4</td>                        <td>                            
-              <select name="sub1">                                
+            </th>
+          </tr>
+          <tr>
+            <td style="border-left: 25 solid;padding-left: 15">Advanced Theory of Mechanisms </td>
+            <td style="text-align: center">4</td>                        <td>
+              <select name="sub1">
                 <option value="10">O
-                </option>                                
+                </option>
                 <option value="9">A+
-                </option>                                
+                </option>
                 <option value="8.5">A
-                </option>                                
+                </option>
                 <option value="8">B+
-                </option>                                
+                </option>
                 <option value="7">B
-                </option>                                
+                </option>
                 <option value="6">C
-                </option>                                
+                </option>
                 <option value="5">P
-                </option>                            
-              </select>                        </td>                    
-            <tr>                        
-              <td style="border-left: 25 solid;padding-left: 15">Design of Pressure Vessels and Piping </td>                        
-              <td style="text-align: center">3</td>                        <td>                            
-                <select name="sub2">                                
+                </option>
+              </select>                        </td>
+            <tr>
+              <td style="border-left: 25 solid;padding-left: 15">Design of Pressure Vessels and Piping </td>
+              <td style="text-align: center">3</td>                        <td>
+                <select name="sub2">
                   <option value="10">O
-                  </option>                                
+                  </option>
                   <option value="9">A+
-                  </option>                                
+                  </option>
                   <option value="8.5">A
-                  </option>                                
+                  </option>
                   <option value="8">B+
-                  </option>                                
+                  </option>
                   <option value="7">B
-                  </option>                                
+                  </option>
                   <option value="6">C
-                  </option>                                
+                  </option>
                   <option value="5">P
-                  </option>                            
-                </select>                        </td>                    
-            </tr>                    
-            <tr>                        
-              <td style="border-left: 25 solid;padding-left: 15">Experimental Stress Analysis </td>                        
-              <td style="text-align: center">3</td>                        <td>                            
-                <select name="sub3">                                
+                  </option>
+                </select>                        </td>
+            </tr>
+            <tr>
+              <td style="border-left: 25 solid;padding-left: 15">Experimental Stress Analysis </td>
+              <td style="text-align: center">3</td>                        <td>
+                <select name="sub3">
                   <option value="10">O
-                  </option>                                
+                  </option>
                   <option value="9">A+
-                  </option>                                
+                  </option>
                   <option value="8.5">A
-                  </option>                                
+                  </option>
                   <option value="8">B+
-                  </option>                                
+                  </option>
                   <option value="7">B
-                  </option>                                
+                  </option>
                   <option value="6">C
-                  </option>                                
+                  </option>
                   <option value="5">P
-                  </option>                            
-                </select>                        </td>                    
-              <tr>                    
-                <tr>                        <td>                            
-                    <select name="ele1" style="border-left: 25 solid;padding-left: 15">                                
-                      <option value="none" selected>Elective –I 
-                      </option>                                
+                  </option>
+                </select>                        </td>
+              <tr>
+                <tr>                        <td>
+                    <select name="ele1" style="border-left: 25 solid;padding-left: 15">
+                      <option value="none" selected>Elective –I
+                      </option>
                       <option value="9">Design of Power Transmission Elements
-                      </option>                                
+                      </option>
                       <option value="8">Design & Analysis of Composite Structures
-                      </option>                                
+                      </option>
                       <option value="7">Advanced Computer Graphics
-                      </option>                                
-                      <option value="6">Condition Monitoring & Maintenance Engineering 
-                      </option>                            
-                    </select>                        </td>                        
-                  <td style="text-align: center">3</td>                        <td>                            
-                    <select name="sub4">                                
+                      </option>
+                      <option value="6">Condition Monitoring & Maintenance Engineering
+                      </option>
+                    </select>                        </td>
+                  <td style="text-align: center">3</td>                        <td>
+                    <select name="sub4">
                       <option value="10">O
-                      </option>                                
+                      </option>
                       <option value="9">A+
-                      </option>                                
+                      </option>
                       <option value="8.5">A
-                      </option>                                
+                      </option>
                       <option value="8">B+
-                      </option>                                
+                      </option>
                       <option value="7">B
-                      </option>                                
+                      </option>
                       <option value="6">C
-                      </option>                                
+                      </option>
                       <option value="5">P
-                      </option>                            
-                    </select>                        </td>                    
-                </tr>                    
-                <tr>                        <td>                            
-                    <select name="ele2" style="border-left: 25 solid;padding-left: 15">                                
-                      <option value="none" selected>Elective –II 
-                      </option>                                
+                      </option>
+                    </select>                        </td>
+                </tr>
+                <tr>                        <td>
+                    <select name="ele2" style="border-left: 25 solid;padding-left: 15">
+                      <option value="none" selected>Elective –II
+                      </option>
                       <option value="9">Optimization Techniques for Engineering
-                      </option>                                
+                      </option>
                       <option value="8">Acoustics and Noise Control
-                      </option>                                
+                      </option>
                       <option value="7">Advanced Finite Element Methods
-                      </option>                                
+                      </option>
                       <option value="6">Robotics
-                      </option>                            
-                    </select>                        </td>                        
-                  <td style="text-align: center">3</td>                        <td>                            
-                    <select name="sub5">                                
+                      </option>
+                    </select>                        </td>
+                  <td style="text-align: center">3</td>                        <td>
+                    <select name="sub5">
                       <option value="10">O
-                      </option>                                
+                      </option>
                       <option value="9">A+
-                      </option>                                
+                      </option>
                       <option value="8.5">A
-                      </option>                                
+                      </option>
                       <option value="8">B+
-                      </option>                                
+                      </option>
                       <option value="7">B
-                      </option>                                
+                      </option>
                       <option value="6">C
-                      </option>                                
+                      </option>
                       <option value="5">P
-                      </option>                            
-                    </select>                        </td>                    
-                  <tr>                    
-                    <tr>                        
-                      <td style="border-left: 25 solid;padding-left: 15">Mini Project</td>                        
-                      <td style="text-align: center">2</td>                        <td>                            
-                        <select name="sub6">                                
+                      </option>
+                    </select>                        </td>
+                  <tr>
+                    <tr>
+                      <td style="border-left: 25 solid;padding-left: 15">Mini Project</td>
+                      <td style="text-align: center">2</td>                        <td>
+                        <select name="sub6">
                           <option value="10">O
-                          </option>                                
+                          </option>
                           <option value="9">A+
-                          </option>                                
+                          </option>
                           <option value="8.5">A
-                          </option>                                
+                          </option>
                           <option value="8">B+
-                          </option>                                
+                          </option>
                           <option value="7">B
-                          </option>                                
+                          </option>
                           <option value="6">C
-                          </option>                                
+                          </option>
                           <option value="5">P
-                          </option>                            
-                        </select>                        </td>                    
-                      <tr>                    
-                        <tr>                        
-                          <td style="border-left: 25 solid;padding-left: 15">Modelling & Analysis Lab </td>                        
-                          <td style="text-align: center">1</td>                        <td>                            
-                            <select name="sub7">                                
+                          </option>
+                        </select>                        </td>
+                      <tr>
+                        <tr>
+                          <td style="border-left: 25 solid;padding-left: 15">Modelling & Analysis Lab </td>
+                          <td style="text-align: center">1</td>                        <td>
+                            <select name="sub7">
                               <option value="10">O
-                              </option>                                
+                              </option>
                               <option value="9">A+
-                              </option>                                
+                              </option>
                               <option value="8.5">A
-                              </option>                                
+                              </option>
                               <option value="8">B+
-                              </option>                                
+                              </option>
                               <option value="7">B
-                              </option>                                
+                              </option>
                               <option value="6">C
-                              </option>                                
+                              </option>
                               <option value="5">P
-                              </option>                            
-                            </select>                        </td>                    
-                          <tr>                
-        </table>                
-        <input type="submit" value="Calculate GPA" formaction="/s2" style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">            
-      </form>        
-    </div>        
-    <div id="sem3" style="display:none">            
-      <form method="POST">                
-        <table style="width: 700">                    
-          <tr>                        
-            <th>Name
-            </th>                        
+                              </option>
+                            </select>                        </td>
+                          <tr>
+        </table>
+        </div>
+        <input type="submit" value="Calculate GPA" formaction="/s2" style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
+      </form>
+    </div>
+    <div id="sem3" style="display: none; width: 750px;">
+      <form method="POST">
+      <div id="container3" style="width:700;height:270">
+        <table style="width: 700">
+          <tr>
+            <th style="text-align: left;padding-left: 15">Name
+            </th>
             <th>Credits
-            </th>                        
+            </th>
             <th>Grade
-            </th>                    
-          </tr>                    
-          <tr>                        <td>                            
-              <select name="ele3">                                
-                <option value="none" selected>Elective –III 
-                </option>                                
+            </th>
+          </tr>
+          <tr>                        <td style="border-left: 25 solid;padding-left: 15px">
+              <select name="ele3">
+                <option value="none" selected>Elective –III
+                </option>
                 <option value="9">Advanced Numerical Methods
-                </option>                                
-                <option value="8">Advanced Non Destructive Evaluation 
-                </option>                                
+                </option>
+                <option value="8">Advanced Non Destructive Evaluation
+                </option>
                 <option value="7">Advanced Design Synthesis
-                </option>                                
+                </option>
                 <option value="6">Mechatronics System Design
-                </option>                                
-                <option value="6">Computational Plasticity 
-                </option>                            
-              </select>                        </td>                        <td>3</td>                        <td>                            
-              <select name="sub1">                                
+                </option>
+                <option value="6">Computational Plasticity
+                </option>
+              </select>                        </td>                        <td style="text-align: center">3</td>                        <td>
+              <select name="sub1">
                 <option value="10">O
-                </option>                                
+                </option>
                 <option value="9">A+
-                </option>                                
+                </option>
                 <option value="8.5">A
-                </option>                                
+                </option>
                 <option value="8">B+
-                </option>                                
+                </option>
                 <option value="7">B
-                </option>                                
+                </option>
                 <option value="6">C
-                </option>                                
+                </option>
                 <option value="5">P
-                </option>                            
-              </select>                        </td>                    
-          </tr>                    
-          <tr>                        <td>                            
-              <select name="ele4">                                
-                <option value="none" selected>Elective –IV 
-                </option>                                
+                </option>
+              </select>                        </td>
+          </tr>
+          <tr>                        <td style="border-left: 25 solid;padding-left: 15px">
+              <select name="ele4">
+                <option value="none" selected>Elective –IV
+                </option>
                 <option value="9">Fracture Mechanics
-                </option>                                
+                </option>
                 <option value="8">Mechanical Behaviour of Materials
-                </option>                                
+                </option>
                 <option value="7">Computational Methods in Design & Manufacturing
-                </option>                                
+                </option>
                 <option value="6">Advanced Vehicle  Dynamics
-                </option>                                
+                </option>
                 <option value="6">Control System
-                </option>                            
-              </select>                        </td>                        <td>3</td>                        <td>                            
-              <select name="sub2">                                
+                </option>
+              </select>                        </td>                        <td style="text-align: center">3</td>                        <td>
+              <select name="sub2">
                 <option value="10">O
-                </option>                                
+                </option>
                 <option value="9">A+
-                </option>                                
+                </option>
                 <option value="8.5">A
-                </option>                                
+                </option>
                 <option value="8">B+
-                </option>                                
+                </option>
                 <option value="7">B
-                </option>                                
+                </option>
                 <option value="6">C
-                </option>                                
+                </option>
                 <option value="5">P
-                </option>                            
-              </select>                        </td>                    
-          </tr>                    
-          <tr>                        <td>Seminar II</td>                        <td>2</td>                        <td>                            
-              <select name="sub3">                                
+                </option>
+              </select>                        </td>
+          </tr>
+          <tr>                        <td style="border-left: 25 solid;padding-left: 15px">Seminar II</td>                        <td style="text-align: center">2</td>                        <td>
+              <select name="sub3">
                 <option value="10">O
-                </option>                                
+                </option>
                 <option value="9">A+
-                </option>                                
+                </option>
                 <option value="8.5">A
-                </option>                                
+                </option>
                 <option value="8">B+
-                </option>                                
+                </option>
                 <option value="7">B
-                </option>                                
+                </option>
                 <option value="6">C
-                </option>                                
+                </option>
                 <option value="5">P
-                </option>                            
-              </select>                        </td>                    
-            <tr>                    
-              <tr>                        <td>Project (Phase 1) </td>                        <td>6</td>                        <td>                            
-                  <select name="sub4">                                
+                </option>
+              </select>                        </td>
+            <tr>
+              <tr>                        <td style="border-left: 25 solid;padding-left: 15px">Project (Phase 1) </td>                        <td style="text-align: center">6</td>                        <td>
+                  <select name="sub4">
                     <option value="10">O
-                    </option>                                
+                    </option>
                     <option value="9">A+
-                    </option>                                
+                    </option>
                     <option value="8.5">A
-                    </option>                                
+                    </option>
                     <option value="8">B+
-                    </option>                                
+                    </option>
                     <option value="7">B
-                    </option>                                
+                    </option>
                     <option value="6">C
-                    </option>                                
+                    </option>
                     <option value="5">P
-                    </option>                            
-                  </select>                        </td>                    
-                <tr>                
-        </table>                
-        <input type="submit" value="Calculate GPA" formaction="/s3">            
-      </form>        
-    </div>        
-    <div id="sem4" style="display:none">            
-      <form method="POST">                
-        <table style="width: 700">                    
-          <tr>                        
-            <th>Name
-            </th>                        
+                    </option>
+                  </select>                        </td>
+                <tr>
+        </table>
+        </div>
+        <input type="submit" value="Calculate GPA" formaction="/s3" style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
+      </form>
+    </div>
+    <div id="sem4" style="display: none;width: 750px;">
+      <form method="POST">
+      <div id="container4" style="width:700;height:270">
+        <table style="width: 700">
+          <tr>
+            <th style="text-align: left;padding-left: 15">Name
+            </th>
             <th>Credits
-            </th>                        
+            </th>
             <th>Grade
-            </th>                    
-          </tr>                    
-          <tr>                        <td>Project (Phase 2) </td>                        <td>12</td>                        <td>                            
-              <select name="sub1">                                
+            </th>
+          </tr>
+          <tr>                        <td style="border-left: 25 solid;padding-left: 15px">Project (Phase 2) </td>                        <td style="text-align: center">12</td>                        <td>
+              <select name="sub1">
                 <option value="10">O
-                </option>                                
+                </option>
                 <option value="9">A+
-                </option>                                
+                </option>
                 <option value="8.5">A
-                </option>                                
+                </option>
                 <option value="8">B+
-                </option>                                
+                </option>
                 <option value="7">B
-                </option>                                
+                </option>
                 <option value="6">C
-                </option>                                
+                </option>
                 <option value="5">P
-                </option>                            
-              </select>                        </td>                    
-            <tr>                
-        </table>                
-        <input type="submit" value="Calculate GPA" formaction="/s4">            
-      </form>        
-    </div>    
-  </body>    
-  <footer style="position: fixed;bottom: 0px">        
-    <p>If you want see more projects like this, contribute to this project.Contact owner.No contribution is small.
-      </span>    
-    </p>    
-    <p class="MsoNormal">
-      <span style="mso-fareast-font-family:&quot;Times New Roman&quot;">Owner:George Zacharia   Email:george.zcharia@gmail.com 
+                </option>
+              </select>                        </td>
+            <tr>
+        </table>
+        </div>
+        <input type="submit" value="Calculate GPA" formaction="/s4" style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
+      </form>
+    </div>
+  <div id="sgpa" style="display: block;width: 400px;margin-left: 950px;float:right;">
+    <h1>Cumulative GPA</h1>
+    <p>Enter the SGPA values,leave result awaiting semesters as such </p>
+    <form action="/sgpa" method="POST">
+        Semester 1  <input type="text" name="sgpa1" size="4" value="0"><br>
+        Semester 2  <input type="text" name="sgpa2" size="4" value="0"><br>
+        Semester 3  <input type="text" name="sgpa3" size="4" value="0"><br>
+        Semester 4  <input type="text" name="sgpa4" size="4" value="0"><br>
+        <input type="submit" value="Calculate">
+    </form>
+  </div>
+  </body>
+  <footer style="position: fixed;bottom: 0px">
+    <p>If you want see more projects like this, contribute to this project.No contribution is small.
       </span>
-    </p>    
+    </p>
+    <p class="MsoNormal">
+      <span style="mso-fareast-font-family:&quot;Times New Roman&quot;">Owner:George Zacharia   Email:george.zcharia@gmail.com
+      </span>
+    </p>
     <p class="MsoNormal">
       <span style="mso-fareast-font-family:&quot;Times New Roman&quot;">Credits to Python, Flask, PythonAnywhere, and above all Google for making this possible
       </span>

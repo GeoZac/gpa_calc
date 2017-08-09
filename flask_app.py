@@ -128,6 +128,31 @@ def s4 ( ):
     return render_template( 'out.html', gpa=gpstr, sem=sem )
 
 
+@app.route( '/sgpa', methods=[ 'GET','POST' ] )
+def cgpacalc():
+    exc = 'Try again with a valid input'
+    sgpa1 = float(request.form[ 'sgpa1' ])
+    sgpa2 = float(request.form[ 'sgpa2' ])
+    sgpa3 = float(request.form[ 'sgpa3' ])
+    sgpa4 = float(request.form[ 'sgpa4' ])
+    if sgpa1==0:
+        return exc
+    else:
+        cgpa = sgpa1
+        if sgpa2!=0:
+            cgpa = sgpa1*22+sgpa2*19
+            cgpa = cgpa/41
+            if sgpa3!=0:
+                cgpa = sgpa1*22+sgpa2*19+sgpa3*14
+                cgpa = cgpa/55
+                if sgpa4 != 0:
+                    cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 14+ sgpa4 * 12
+                    cgpa = cgpa / 67
+    cgpar = round( cgpa, ndigits=2 )
+    cgpstr = str( cgpar )
+    return render_template( 'sgpa.html', cgpstr=cgpstr )
+
+
 # start the server with the 'run()' method
 if __name__ == '__main__':
     app.run()
