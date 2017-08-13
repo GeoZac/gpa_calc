@@ -3,11 +3,12 @@ flask app to calculate GPA for M.Tech Machine Design under APJ Abdul Kalam Techn
 
 ==To do==
 
- >everything
- >cleanup htmls
-  >reuse <select>
-  >improve layout
-  >remove redundant code
-> post result on same page
-> overload function on python
-> document everything,well only pros like you can see them so, at last
+everything
+  cleanup htmls
+  reuse <select>
+  improve layout
+  remove redundant code
+  post result on same page
+    did cgpa for now
+  overload function on python
+  document everything,well only pros like you can see them so, at last

@@ -1,9 +1,10 @@
-from flask import request, render_template,Flask
+from flask import request, render_template, Flask, jsonify
 
 # create the application object
 app = Flask( __name__ )
 
-#set total credit
+
+# set total credit
 def setsem (sem):
     global totalcre
     if sem == 1:
@@ -17,7 +18,7 @@ def setsem (sem):
     return totalcre
 
 
-#sem1 with 8 subs
+# sem1 with 8 subs
 def gpacalc1 (sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8, sem):
     totalcre = setsem( sem )
     sub1 = float( sub1 )
@@ -32,7 +33,8 @@ def gpacalc1 (sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8, sem):
     gpa = gpa / totalcre
     return gpa
 
-#sem2 with 7 subs
+
+# sem2 with 7 subs
 def gpacalc2 (sub1, sub2, sub3, sub4, sub5, sub6, sub7, sem):
     totalcre = setsem( sem )
     sub1 = float( sub1 )
@@ -46,7 +48,8 @@ def gpacalc2 (sub1, sub2, sub3, sub4, sub5, sub6, sub7, sem):
     gpa = gpa / totalcre
     return gpa
 
-#sem3 with 4 subs
+
+# sem3 with 4 subs
 def gpacalc3 (sub1, sub2, sub3, sub4, sem):
     totalcre = setsem( sem )
     sub1 = float( sub1 )
@@ -57,7 +60,8 @@ def gpacalc3 (sub1, sub2, sub3, sub4, sem):
     gpa = gpa / totalcre
     return gpa
 
-#sem4 with 1 sub
+
+# sem4 with 1 sub
 def gpacalc4 (sub1, sem):
     totalcre = setsem( sem )
     sub1 = float( sub1 )
@@ -65,12 +69,14 @@ def gpacalc4 (sub1, sem):
     gpa = gpa / totalcre
     return gpa
 
+
 # welcome page
 @app.route( '/', methods=[ 'GET', 'POST' ] )
 def welcome ( ):
     return render_template( 'main.html' )
 
-#calulate gpa on s1 div
+
+# calulate gpa on s1 div
 @app.route( '/s1', methods=[ 'GET', 'POST' ] )
 def s1 ( ):
     sem = 1
@@ -85,7 +91,7 @@ def s1 ( ):
     gpa = gpacalc1( sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8, sem )
     gpar = round( gpa, ndigits=2 )
     gpstr = str( gpar )
-    return render_template( 'out.html', gpa=gpstr, sem=sem ) # pass out sem and gpa
+    return render_template( 'out.html', gpa=gpstr, sem=sem )  # pass out sem and gpa
 
 
 @app.route( '/s2', methods=[ 'GET', 'POST' ] )
@@ -128,29 +134,33 @@ def s4 ( ):
     return render_template( 'out.html', gpa=gpstr, sem=sem )
 
 
-@app.route( '/sgpa', methods=[ 'GET','POST' ] )
-def cgpacalc():
-    exc = 'Try again with a valid input'
-    sgpa1 = float(request.form[ 'sgpa1' ])
-    sgpa2 = float(request.form[ 'sgpa2' ])
-    sgpa3 = float(request.form[ 'sgpa3' ])
-    sgpa4 = float(request.form[ 'sgpa4' ])
-    if sgpa1==0:
-        return exc
+@app.route( '/sgpa', methods=[ 'GET', 'POST' ] )
+def cgpacalc ( ):
+    sgpa1 = request.args.get( 's1', 0, type=float )
+    sgpa2 = request.args.get( 's2', 0, type=float )
+    sgpa3 = request.args.get( 's3', 0, type=float )
+    sgpa4 = request.args.get( 's4', 0, type=float )
+    if sgpa1 == 0:
+        return jsonify( result='Invalid Input' )
     else:
         cgpa = sgpa1
-        if sgpa2!=0:
-            cgpa = sgpa1*22+sgpa2*19
-            cgpa = cgpa/41
-            if sgpa3!=0:
-                cgpa = sgpa1*22+sgpa2*19+sgpa3*14
-                cgpa = cgpa/55
+        sem = '1'
+        if sgpa2 != 0:
+            cgpa = sgpa1 * 22 + sgpa2 * 19
+            cgpa = cgpa / 41
+            sem = '2'
+            if sgpa3 != 0:
+                cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 14
+                cgpa = cgpa / 55
+                sem = '3'
                 if sgpa4 != 0:
-                    cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 14+ sgpa4 * 12
+                    cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 14 + sgpa4 * 12
                     cgpa = cgpa / 67
+                    sem = '4'
     cgpar = round( cgpa, ndigits=2 )
     cgpstr = str( cgpar )
-    return render_template( 'sgpa.html', cgpstr=cgpstr )
+    fullstr = 'Your CGPA till semester {0} is {1}'.format( sem, cgpstr )
+    return jsonify( result=fullstr )
 
 
 # start the server with the 'run()' method
