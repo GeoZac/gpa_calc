@@ -3,6 +3,9 @@ from flask import request, render_template, Flask, jsonify
 # create the application object
 app = Flask( __name__ )
 
+def gpa2per(gpa):
+    per = 10*gpa -3.75
+    return per
 
 # set total credit
 def setsem (sem):
@@ -89,9 +92,10 @@ def s1 ( ):
     sub7 = request.form[ 'sub7' ]
     sub8 = request.form[ 'sub8' ]
     gpa = gpacalc1( sub1, sub2, sub3, sub4, sub5, sub6, sub7, sub8, sem )
+    per = round(gpa2per(gpa), ndigits=2)
     gpar = round( gpa, ndigits=2 )
     gpstr = str( gpar )
-    return render_template( 'out.html', gpa=gpstr, sem=sem )  # pass out sem and gpa
+    return render_template( 'out.html', gpa=gpstr, sem=sem,per = per)  # pass out sem and gpa
 
 
 @app.route( '/s2', methods=[ 'GET', 'POST' ] )
@@ -106,9 +110,10 @@ def s2 ( ):
     sub6 = request.form[ 'sub6' ]
     sub7 = request.form[ 'sub7' ]
     gpa = gpacalc2( sub1, sub2, sub3, sub4, sub5, sub6, sub7, sem )
+    per = round ( gpa2per ( gpa ), ndigits=2 )
     gpar = round( gpa, ndigits=2 )
     gpstr = str( gpar )
-    return render_template( 'out.html', gpa=gpstr, sem=sem )
+    return render_template( 'out.html', gpa=gpstr, sem=sem, per=per )
 
 
 @app.route( '/s3', methods=[ 'GET', 'POST' ] )
@@ -119,9 +124,10 @@ def s3 ( ):
     sub3 = request.form[ 'sub3' ]
     sub4 = request.form[ 'sub4' ]
     gpa = gpacalc3( sub1, sub2, sub3, sub4, sem )
+    per = round ( gpa2per ( gpa ), ndigits=2 )
     gpar = round( gpa, ndigits=2 )
     gpstr = str( gpar )
-    return render_template( 'out.html', gpa=gpstr, sem=sem )
+    return render_template( 'out.html', gpa=gpstr, sem=sem, per=per )
 
 
 @app.route( '/s4', methods=[ 'GET', 'POST' ] )
@@ -129,9 +135,10 @@ def s4 ( ):
     sem = 4
     sub1 = request.form[ 'sub1' ]
     gpa = gpacalc4( sub1, sem )
+    per = round ( gpa2per ( gpa ), ndigits=2 )
     gpar = round( gpa, ndigits=2 )
     gpstr = str( gpar )
-    return render_template( 'out.html', gpa=gpstr, sem=sem )
+    return render_template( 'out.html', gpa=gpstr, sem=sem, per=per)
 
 
 @app.route( '/sgpa', methods=[ 'GET', 'POST' ] )
