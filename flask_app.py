@@ -157,10 +157,10 @@ def cgpacalc ( ):
                     cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 14 + sgpa4 * 12
                     cgpa = cgpa / 67
                     sem = '4'
-    cgpar = round( cgpa, ndigits=2 )
-    cgpstr = str( cgpar )
-    fullstr = 'Your CGPA till semester {0} is {1}'.format( sem, cgpstr )
-    return jsonify( result=fullstr )
+    cgpr = round(cgpa, ndigits=2 )
+    percent = 10*cgpa - 3.75
+    str = 'Your CGPA till semester {0} is {1} ,this is equivalent to {2} %'.format(sem, cgpr,percent)
+    return jsonify(result=str)
 
 
 # start the server with the 'run()' method
