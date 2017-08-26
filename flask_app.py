@@ -73,7 +73,7 @@ def gpacalc4 (sub1, sem):
 # welcome page
 @app.route( '/', methods=[ 'GET', 'POST' ] )
 def welcome ( ):
-    return render_template( 'main.html' )
+    return render_template( 'index.html' )
 
 
 # calulate gpa on s1 div
@@ -166,3 +166,8 @@ def cgpacalc ( ):
 # start the server with the 'run()' method
 if __name__ == '__main__':
     app.run()
+#TODO add links to all pages,
+# MAKE PAGES
+#jsonify sgpa
+#find fracture
+
