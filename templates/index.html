@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>unConventionalMe</title>
+	<link rel="stylesheet" href="../static/style.css">	
+</head>
+
+<body>
+   <script type="text/javascript"
+        src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript">
+    $(function() {
+    var submit_form = function(e) {
+      $.getJSON($SCRIPT_ROOT + '/sgpa', {
+        s1: $('input[name="sgpa1"]').val(),
+        s2: $('input[name="sgpa2"]').val(),
+        s3: $('input[name="sgpa3"]').val(),
+        s4: $('input[name="sgpa4"]').val()
+        },
+       function(data) {
+        $('#result').text(data.result);
+        $('input[name=a]').focus().select();
+      });
+      return false;
+    };
+
+    $('a#calculate').bind('click', submit_form);
+
+    $('input[type=text]').bind('keydown', function(e) {
+      if (e.keyCode == 13) {
+        submit_form(e);
+      }
+    });
+
+    $('input[name=a]').focus();
+  });
+
+</script>
+	<header id="header"><p>unConventionalMe</p></header>
+
+	<div id="container">
+
+		<main id="center" class="column">
+    <div id="info">
+    As the project had to expand and more pages had to be pushed in,I was forced to moved the pages.You can still visit the old pages from the links at the left.Thanks for your support.
+		<div>
+    <div id="sgpa">
+    <h1>Cumulative GPA</h1>
+    <p>Enter the SGPA values,leave result awaiting semesters as such </p>
+    <form action="/sgpa" method="POST">
+      Semester 1 <input type="text" name="sgpa1" size="4" value="0"><br>
+      Semester 2 <input type="text" name="sgpa2" size="4" value="0"><br>
+      Semester 3 <input type="text" name="sgpa3" size="4" value="0"><br>
+      Semester 4 <input type="text" name="sgpa4" size="4" value="0"><br>
+    </form>
+    <p><a href=# id="calculate">Calculate CGPA</a>&nbsp;
+    <span id="result"> </span>
+    </div>
+    <div id="support">
+  If you want see more projects like this, contribute to this project.No contribution is small.<br>
+  Credits to Python, Flask, PythonAnywhere, and above all Google for making this possible.<br>
+  Owner:<a href ="mailto:george.zcharia@gmail.com">George Zacharia</a>
+  </div>									
+		</div></div></main>
+
+		<nav id="left" class="column">
+			<h3>Pages</h3>
+			<ul>
+				<li><a href="{{ url_for('wip') }}">Vibration Response</a></li>
+				<li><a href="{{ url_for('wip') }}">Composite Laminae</a></li>
+				<li><a href="{{ url_for('wip') }}">Mohr Circles</a></li>
+				<li><a href="{{ url_for('main') }}">GPA Calculator</a></li>
+				<li><a href="{{ url_for('wip') }}">CGPA Calculator</a></li>
+			</ul>
+			<h3>Miscellaneous</h3>
+			<ul>
+				<li><a href="{{ url_for('wip') }}">Unit Converter</a></li>
+				<li><a href="{{ url_for('wip') }}">Our Tools</a></li>
+				<li><a href="{{ url_for('wip') }}">Our Team</a></li>
+				<li><a href="{{ url_for('wip') }}">Want to join us?</a></li>
+			</ul>
+
+		</nav>
+
+		<div id="right" class="column">
+			<h3>Changelog</h3>
+			<p>We are expanding,and so is the site,please bear with us</p>
+			<p>Now view percent along with GPA</p>
+		</div>
+
+	</div>
+
+	<div id="footer-wrapper">
+		<footer id="footer"><p>Thanks to html.am for this subtle template</p></footer>
+	</div>
+</body>
+</html>

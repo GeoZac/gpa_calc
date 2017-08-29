@@ -1,4 +1,4 @@
-from flask import request, render_template, Flask, jsonify
+from flask import request, render_template, Flask, jsonify, redirect, url_for
 
 # create the application object
 app = Flask( __name__ )
@@ -76,7 +76,16 @@ def gpacalc4 (sub1, sem):
 # welcome page
 @app.route( '/', methods=[ 'GET', 'POST' ] )
 def welcome ( ):
-    return render_template( 'main.html' )
+    return render_template( 'index.html' )
+
+@app.route( '/main', methods=[ 'GET', 'POST' ] )
+def main():
+    return render_template('main.html')
+
+@app.route( '/wip', methods=[ 'GET', 'POST' ] )
+def wip():
+    return render_template('wip.html')
+
 
 
 # calulate gpa on s1 div
@@ -173,3 +182,8 @@ def cgpacalc ( ):
 # start the server with the 'run()' method
 if __name__ == '__main__':
     app.run()
+#TODO add links to all pages,
+# MAKE PAGES
+#jsonify sgpa
+#find fracture
+
