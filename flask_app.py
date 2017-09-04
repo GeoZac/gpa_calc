@@ -86,6 +86,10 @@ def main():
 def wip():
     return render_template('wip.html')
 
+@app.route( '/frame', methods=[ 'GET', 'POST' ] )
+def frame():
+    return render_template('frame.html')
+
 
 
 # calulate gpa on s1 div
