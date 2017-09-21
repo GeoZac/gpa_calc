@@ -3,6 +3,8 @@ from math import sqrt, pi
 import matplotlib.pylab as pylab
 from scipy.integrate import odeint
 from pylab import arange, array
+from io import BytesIO
+import base64
 
 
 
@@ -239,8 +241,14 @@ def vibres():
     pylab.title ( 'System Response' )
     pylab.grid ()
     #pylab.show ( block=True )
-    pylab.savefig('vib.png')
-    return render_template("vibres.html")
+    #pylab.savefig('vib.png')
+    figfile = BytesIO()
+    pylab.savefig(figfile, format='png')
+    figfile.seek(0)
+    figdata_png = base64.b64encode(figfile.getvalue()).decode('ascii')
+    result = figdata_png
+    return render_template('vibres.html', result=result)
+
 
 
     # start the server with the 'run()' method
