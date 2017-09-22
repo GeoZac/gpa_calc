@@ -5,6 +5,10 @@ from scipy.integrate import odeint
 from pylab import arange, array
 from io import BytesIO
 import base64
+import pandas as pd
+import os
+from material import *
+import json
 
 
 
@@ -235,9 +239,9 @@ def vibres():
     ax2.plot ( t, xd, 'g--', label=r'$\dot{x} (m/sec)$', linewidth=2.0 )
     ax2.legend ( loc='lower right' )
     ax1.legend ()
-    ax1.set_xlabel ( 'time , sec' )
-    ax1.set_ylabel ( 'disp (mm)', color='b' )
-    ax2.set_ylabel ( 'velocity (m/s)', color='g' )
+    ax1.set_xlabel('time , sec')
+    ax1.set_ylabel('disp (mm)', color='b')
+    ax2.set_ylabel('velocity (m/s)', color='g')
     pylab.title ( 'System Response' )
     pylab.grid ()
     #pylab.show ( block=True )
@@ -249,12 +253,12 @@ def vibres():
     result = figdata_png
     return render_template('vibres.html', result=result)
 
+@app.route('/material', methods=['GET', 'POST'])
+def materialdata():
+    mat = request.args.get('material', type=str)
+    data = material(mat)
+    return jsonify(data)
 
 
-    # start the server with the 'run()' method
 if __name__ == '__main__':
     app.run()
-#TODO add links to all pages,
-# MAKE PAGES
-# jsonify sgpa
-# find fracture
