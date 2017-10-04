@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>unConventionalMe</title>
+	<link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+   <script type="text/javascript"
+        src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript">
+    $(function() {
+    var submit_form = function(e) {
+      $.getJSON($SCRIPT_ROOT + '/sgpa', {
+        s1: $('input[name="sgpa1"]').val(),
+        s2: $('input[name="sgpa2"]').val(),
+        s3: $('input[name="sgpa3"]').val(),
+        s4: $('input[name="sgpa4"]').val()
+        },
+       function(data) {
+        $('#result').text(data.result);
+        $('input[name=a]').focus().select();
+      });
+      return false;
+    };
+
+    $('a#calculate').bind('click', submit_form);
+
+    $('input[type=text]').bind('keydown', function(e) {
+      if (e.keyCode == 13) {
+        submit_form(e);
+      }
+    });
+
+    $('input[name=a]').focus();
+  });
+
+</script>
+	<header id="header"><p>unConventionalMe</p></header>
+
+	<div id="container">
+
+		<main id="center" class="column">
+            <p>If you are seeing this,you got a front row seat to mad show
+            Choose a material,don't worry,it will suggest and give submit</p>
+  <form action="/material" method="GET">
+    <input list="materials" name="id" />
+    <input type="submit" value="Submit" />
+</form>
+<datalist id="materials">
+  <option value="Steel">
+  <option value="Aluminium">
+  <option value="Titanium">
+  <option value="Diamond">
+  <option value="Concrete">
+</datalist>
+    </main>
+
+		<nav id="left" class="column">
+			<h3>Pages</h3>
+			<ul>
+				<li><a href="{{ url_for('vibdata') }}">Vibration Response</a></li>
+				<li><a href="{{ url_for('wip') }}">Composite Laminae</a></li>
+				<li><a href="{{ url_for('wip') }}">Mohr Circles</a></li>
+				<li><a href="{{ url_for('frame') }}">KTU Portal</a></li>
+				<li><a href="{{ url_for('main') }}">GPA Calculator</a></li>
+				<li><a href="{{ url_for('wip') }}">CGPA Calculator</a></li>
+			</ul>
+			<h3>Miscellaneous</h3>
+			<ul>
+				<li><a href="{{ url_for('wip') }}">Unit Converter</a></li>
+				<li><a href="{{ url_for('wip') }}">Our Tools</a></li>
+				<li><a href="{{ url_for('wip') }}">Our Team</a></li>
+				<li><a href="{{ url_for('wip') }}">Want to join us?</a></li>
+			</ul>
+
+		</nav>
+
+		<div id="right" class="column">
+			<h3>Changelog</h3>
+			<p>We now serve the KTU portal,so that you don't have to fiddle with tabs</p>
+			<p>We are expanding,and so is the site,please bear with us</p>
+		</div>
+
+	</div>
+
+	<div id="footer-wrapper">
+		<footer id="footer"><p>Thanks to html.am for this subtle template</p></footer>
+	</div>
+</body>
+</html>
