@@ -11,9 +11,9 @@ def setsem(sem):
     if sem == 2:
         totalcre = float(19)
     if sem == 3:
-        totalcre = float(14)
+        totalcre = float(8)
     if sem == 4:
-        totalcre = float(12)
+        totalcre = float(18)
     return totalcre
 
 
@@ -41,18 +41,17 @@ def gpacalc2(sub1, sub2, sub3, sub4, sub5, sub6, sub7, sem):
     sub5 = float(sub5)
     sub6 = float(sub6)
     sub7 = float(sub7)
-    gpa = (sub1 * 4) + (sub2 * 3) + (sub3 * 3) + (sub4 * 3) + (sub5 * 3) + (sub6 * 2) + (sub7 * 1)
+    gpa = (sub1 * 4) + (sub2 * 3) + (sub3 * 3) + (sub4 * 3) + (sub5 * 3) + (sub6 * 1) + (sub7 * 2)
     gpa = gpa / totalcre
     return gpa
 
 
-def gpacalc3(sub1, sub2, sub3, sub4, sem):
+def gpacalc3(sub1, sub2, sub3, sem):
     totalcre = setsem(sem)
     sub1 = float(sub1)
     sub2 = float(sub2)
     sub3 = float(sub3)
-    sub4 = float(sub4)
-    gpa = (sub1 * 3) + (sub2 * 3) + (sub3 * 2) + (sub4 * 6)
+    gpa = (sub1 * 3) + (sub2 * 3) + (sub3 * 2)
     gpa = gpa / totalcre
     return gpa
 
@@ -61,6 +60,6 @@ def gpacalc3(sub1, sub2, sub3, sub4, sem):
 def gpacalc4(sub1, sem):
     totalcre = setsem(sem)
     sub1 = float(sub1)
-    gpa = (sub1 * 12)
+    gpa = (sub1 * 18)
     gpa = gpa / totalcre
     return gpa

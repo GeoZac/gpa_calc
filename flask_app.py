@@ -68,8 +68,7 @@ def s3():
     sub1 = request.form['sub1']
     sub2 = request.form['sub2']
     sub3 = request.form['sub3']
-    sub4 = request.form['sub4']
-    gpa = gpacalc3(sub1, sub2, sub3, sub4, sem)
+    gpa = gpacalc3(sub1, sub2, sub3, sem)
     per = round(gpa2per(gpa), ndigits=2)
     gpar = round(gpa, ndigits=2)
     gpstr = str(gpar)
@@ -103,11 +102,11 @@ def cgpacalc():
             cgpa = cgpa / 41
             sem = '2'
             if sgpa3 != 0:
-                cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 14
-                cgpa = cgpa / 55
+                cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 8
+                cgpa = cgpa / 49
                 sem = '3'
                 if sgpa4 != 0:
-                    cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 14 + sgpa4 * 12
+                    cgpa = sgpa1 * 22 + sgpa2 * 19 + sgpa3 * 8 + sgpa4 * 18
                     cgpa = cgpa / 67
                     sem = '4'
     cgpr = round(cgpa, ndigits=2)
