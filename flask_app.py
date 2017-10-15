@@ -78,12 +78,12 @@ def s3():
 @app.route('/s4', methods=['GET', 'POST'])
 def s4():
     sem = 4
-    sub1 = request.args.get('s1', 0, type=float)
+    sub1 = request.form['sub1']
     gpa = gpacalc4(sub1, sem)
     per = round(gpa2per(gpa), ndigits=2)
     gpar = round(gpa, ndigits=2)
-    string = 'Your GPA for semester {0} is {1} ,this is equivalent to {2} %'.format(sem, gpar, per)
-    return jsonify(result=string)
+    gpstr = str(gpar)
+    return render_template('out.html', gpa=gpstr, sem=sem, per=per)
 
 
 @app.route('/sgpa', methods=['GET', 'POST'])

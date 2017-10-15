@@ -10,44 +10,12 @@
 			    var sem1 = document.getElementById("sem1");
 			    var sem2 = document.getElementById("sem2");
 			    var sem3 = document.getElementById("sem3");
-			    var sem4 = document.getElementById("s4");
+			    var sem4 = document.getElementById("sem4");
 			    sem1.style.display = sem.value == "sem1" ? "block" : "none";
 			    sem2.style.display = sem.value == "sem2" ? "block" : "none";
 			    sem3.style.display = sem.value == "sem3" ? "block" : "none";
-			    s4.style.display = sem.value == "sem4" ? "block" : "none";
+			    sem4.style.display = sem.value == "sem4" ? "block" : "none";
 			}
-
-</script>
-<script type="text/javascript"
-        src="{{ url_for('static',filename='jquery.min.js') }}"></script>
-<script type="text/javascript">
-  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
-<script type="text/javascript">
-    $(function() {
-    var submit_form = function(e) {
-    var sem = document.getElementById("sem");
-      $.getJSON($SCRIPT_ROOT + '/s4', {
-        s1: $('select[name="sub41"]').val()
-        },
-       function(data) {
-        $('#result').text(data.result);
-        $('input[name=a]').focus().select();
-      });
-      return false;
-    };
-
-    $('a#calculate').bind('click', submit_form);
-
-    $('input[type=text]').bind('keydown', function(e) {
-      if (e.keyCode == 13) {
-        submit_form(e);
-      }
-    });
-
-    $('input[name=a]').focus();
-  });
-
 </script>
 <header id="header"><p>unConventionalMe</p></header>
 <div id="container">
@@ -391,7 +359,7 @@
                        style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
             </form>
         </div>
-        <div id="s4" style="display: none;width: 750px;">
+        <div id="sem4" style="display: none;width: 750px;">
             <form method="POST">
                 <div id="container4" style="width:700;height:270">
                     <table style="width: 700">
@@ -404,7 +372,7 @@
                             <td style="border-left: 25 solid;padding-left: 15px">Project (Phase 1 & 2)</td>
                             <td style="text-align: center">18</td>
                             <td>
-                                <select name="sub41">
+                                <select name="sub1">
                                     <option value="10">O</option>
                                     <option value="9">A+</option>
                                     <option value="8.5">A</option>
@@ -416,8 +384,8 @@
                         <tr>
                     </table>
                 </div>
-                <p><a href=# id="calculate"><button>Calculate CGPA</button></a>&nbsp;
-    <span id="result"> </span>
+                <input type="submit" value="Calculate GPA" formaction="/s4"
+                       style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
             </form>
         </div>
     </main>
