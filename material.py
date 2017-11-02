@@ -11,10 +11,10 @@ def import_matprops(mat):
 def material(mat):
     mat = import_matprops(mat)
     exp = "not found"
-    data = {}
+    data = dict()
     data['info'] = "an unConventional project"
 
-    # TODO differnetiate material type(isotropc,orthotropic,fiber....)
+    # TODO differentiate material type(isotropic,orthotropic,fiber....)
     data['data'] = {}
     data['data']['material_name'] = mat.name
     data['data']['type'] = mat.type
@@ -28,7 +28,7 @@ def material(mat):
     data['data']['poisson_ratio'] = mat.nu12
     data['data']['youngs_modulus'] = mat.E1
     data['data']['melting_point'] = mat.mp
-    #data['data']['boiling_point'] = mat.bp
+    data['data']['boiling_point'] = mat.bp
     data['source'] = mat.url
     return data
 
