@@ -1,0 +1,114 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>unConventionalMe</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<script type="text/javascript">
+			function ShowHideDiv() {
+			    var state2 = document.getElementById("state2");
+			    var state3 = document.getElementById("state3");
+			    state2.style.display = state.value == "state2" ? "block" : "none";
+			    state3.style.display = state.value == "state3" ? "block" : "none";
+			}
+
+
+
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"]
+  }
+});
+
+
+</script>
+<script type="text/javascript" src=
+        "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<header id="header"><p>unConventionalMe</p></header>
+<div id="container">
+    <main id="center" class="column">
+        <h4>Mohr Circle Constructor</h4>
+        Select the stress system from the dropdown list and input the stress values accordingly,and press the Draw Circle
+        button to draw the Mohr circle for the stress system<br>
+        <select name="state" id="state" onchange="ShowHideDiv()" style="border-left: 25 solid;padding-left: 15">
+            <option value="none" selected>Select stress system</option>
+            <option value="state2">2D</option>
+            <option value="state3">3D</option>
+        </select>
+        <hr>
+        <div id="state2" style="display: none; width: 750px;">
+            <form method="POST">
+                <div id="container1" style="width:700;height:100">
+                    <table>
+                        <tr>
+                            <td>\( \sigma_{11} \) = <input type="text" name="matrix[0][0]" value=""/></td>
+                            <td>\( \sigma_{12} \) = <input type="text" name="matrix[0][1]" value=""/></td>
+
+                        </tr>
+                        <tr>
+                            <td>\( \sigma_{21} \) = <input type="text" name="matrix[1][0]" value=""/></td>
+                            <td>\( \sigma_{22} \) = <input type="text" name="matrix[1][1]" value=""/></td>
+
+                        </tr>
+
+                    </table>
+                </div>
+                <input type="submit" value="Draw Circle" formaction="/mohr2D"
+                       style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
+            </form>
+        </div>
+        <div id="state3" style="display: none; width: 750px;">
+            <form method="POST">
+                <div id="container2" style="width:700;height:100">
+                    <p>It is enough that you fill the either part of the symmetric matrix</p>
+                    <table>
+                        <tr>
+                            <td>\( \sigma_{11} \) = <input type="text" name="matrix[0][0]" value=""/></td>
+                            <td>\( \sigma_{12} \) = <input type="text" name="matrix[0][1]" value=""/></td>
+                            <td>\( \sigma_{13} \) = <input type="text" name="matrix[0][2]" value=""/></td>
+                        </tr>
+                        <tr>
+                            <td>\( \sigma_{21} \) = <input type="text" name="matrix[1][0]" value=""/></td>
+                            <td>\( \sigma_{22} \) = <input type="text" name="matrix[1][1]" value=""/></td>
+                            <td>\( \sigma_{23} \) = <input type="text" name="matrix[1][2]" value=""/></td>
+                        </tr>
+                        <tr>
+                            <td>\( \sigma_{31} \) = <input type="text" name="matrix[2][0]" value=""/></td>
+                            <td>\( \sigma_{32} \) = <input type="text" name="matrix[2][1]" value=""/></td>
+                            <td>\( \sigma_{33} \) = <input type="text" name="matrix[2][2]" value=""/></td>
+                        </tr>
+                    </table>
+                </div>
+                <input type="submit" value="Draw Circle" formaction="/mohr3D"
+                       style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
+            </form>
+        </div>
+    </main>
+    <nav id="left" class="column">
+
+        <h3>Pages</h3>
+        <ul><li><h3><a href="http://geozac.pythonanywhere.com/">Home</a></h3></li>
+            <li><a href="{{ url_for('vibdata') }}">Vibration Response</a></li>
+            <li><a href="{{ url_for('wip') }}">Composite Laminae</a></li>
+            <li><a href="{{ url_for('frame') }}">KTU Portal</a></li>
+            <li><a href="{{ url_for('main') }}">CGPA Calculator</a></li>
+        </ul>
+        <h3>Miscellaneous</h3>
+        <ul>
+            <li><a href="{{ url_for('wip') }}">Unit Converter</a></li>
+            <li><a href="{{ url_for('wip') }}">Our Tools</a></li>
+            <li><a href="{{ url_for('wip') }}">Our Team</a></li>
+            <li><a href="{{ url_for('wip') }}">Want to join us?</a></li>
+        </ul>
+    </nav>
+</div>
+<div id="footer-wrapper">
+    <footer id="footer"><p>Thanks to html.am for this subtle template</p></footer>
+</div>
+</body>
+</html>
