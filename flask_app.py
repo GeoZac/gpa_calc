@@ -1,7 +1,7 @@
 from flask import request, render_template, Flask, jsonify
 
 from material import *
-from vibration import *
+from mech import *
 from gpa import *
 
 app = Flask(__name__)
@@ -135,7 +135,7 @@ def vibres():
 @app.route('/material', methods=['GET', 'POST'])
 def materialdata():
     mat = request.args.get('id', type=str)
-    mat = mat.lower()   # just in case
+    mat = mat.lower()  # just in case
     try:
         data = material(mat)
         return jsonify(data)
@@ -146,6 +146,47 @@ def materialdata():
 @app.route('/materialapi', methods=['GET', 'POST'])
 def api():
     return render_template('mhapi.html')
+
+
+@app.route('/mohr', methods=['GET', 'POST'])
+def mohr():
+    return render_template('mohr.html')
+
+
+@app.route('/mohr2D', methods=['GET', 'POST'])
+def mohr_2d():
+    try:
+        s11 = float(request.form['matrix[0][0]'])
+        s22 = float(request.form['matrix[1][1]'])
+        try:
+            s12 = float(request.form['matrix[0][1]'])
+        except ValueError:
+            s12 = float(request.form['matrix[1][0]'])
+    except ValueError:
+        return 'The stress values need to be integers or floating point decimals'
+    result = mohr2d(s11, s12, s22)
+    return render_template('mohr2d.html', stress2=result)
+    # TODO exception handling,following func too
+
+
+@app.route('/mohr3D', methods=['GET', 'POST'])
+def mohr_3d():
+    try:
+        s11 = float(request.form['matrix[0][0]'])
+        s22 = float(request.form['matrix[1][1]'])
+        s33 = float(request.form['matrix[2][2]'])
+        try:
+            s12 = float(request.form['matrix[0][1]'])
+            s13 = float(request.form['matrix[1][2]'])
+            s23 = float(request.form['matrix[1][2]'])
+        except ValueError:
+            s12 = float(request.form['matrix[1][0]'])
+            s13 = float(request.form['matrix[2][1]'])
+            s23 = float(request.form['matrix[2][1]'])
+    except ValueError:
+        return 'The stress values need to be integers or floating point decimals'
+    result = mohr3d(s11, s22, s33, s12, s13, s23)
+    return render_template('mohr3d.html', stress3=result)
 
 
 if __name__ == '__main__':
