@@ -41,6 +41,7 @@ MathJax.Hub.Config({
             <option value="state3">3D</option>
         </select>
         <hr>
+        <p id=info"><strong>Note:</strong>You are only required to fill only a either half of the stress tensors.</p>
         <div id="state2" style="display: none; width: 750px;">
             <form method="POST">
                 <div id="container1" style="width:700;height:100">
@@ -59,13 +60,12 @@ MathJax.Hub.Config({
                     </table>
                 </div>
                 <input type="submit" value="Draw Circle" formaction="/mohr2D"
-                       style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 25">
+                       style="font-weight: bold;transform: skewY(10);bottom: 0px;top: 0px;right: 0px;left: 0px;padding: 5px 5 5px 5px;margin-left: 50;margin-top: 20">
             </form>
         </div>
         <div id="state3" style="display: none; width: 750px;">
             <form method="POST">
                 <div id="container2" style="width:700;height:100">
-                    <p>It is enough that you fill the either part of the symmetric matrix</p>
                     <table>
                         <tr>
                             <td>\( \sigma_{11} \) = <input type="text" name="matrix[0][0]" value=""/></td>

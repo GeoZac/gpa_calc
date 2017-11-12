@@ -42,6 +42,9 @@ body {
 	padding-bottom: 1001em;
 	margin-bottom: -1000em;
 }
+#info {
+    font-size: large;
+}
 #support {
 	position: relative;
 	bottom: -100px
