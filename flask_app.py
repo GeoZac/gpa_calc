@@ -164,8 +164,12 @@ def mohr_2d():
             s12 = float(request.form['matrix[1][0]'])
     except ValueError:
         return 'The stress values need to be integers or floating point decimals'
-    result = mohr2d(s11, s12, s22)
-    return render_template('mohr2d.html', stress2=result)
+    result = mohr2d(s11, s12, s22, 'plot')
+    res = mohr2d(s11, s12, s22, 'value')
+    values = dict()
+    values["Maximum Principal Stress"] = res[0]
+    values["Minimum Principal Stress"] = res[1]
+    return render_template('mohr2d.html', stress2=result, values=values)
     # TODO exception handling,following func too
 
 

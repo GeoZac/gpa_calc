@@ -74,7 +74,7 @@ Syntax  vibration_response(
 '''
 
 
-def mohr2d(sx, sy, txy):
+def mohr2d(sx, sy, txy,return_value = 'plot'):
     cen = (sx + sy) * .5
     rad = sqrt(((sx - sy) * .5) ** 2 + txy ** 2)
     s1 = round(cen + rad, ndigits=2)
@@ -104,6 +104,8 @@ def mohr2d(sx, sy, txy):
     # pylab.show()
     pylab.title('Mohr Circle for the requested 2D stress field')
     figfile = BytesIO()
+    if return_value == 'value':
+        return s1, s2, s3
     return return_img(figfile)
 
 
