@@ -83,6 +83,7 @@ def mohr2d(sx, sy, txy,return_value = 'plot'):
     t = np.arange(0, np.pi * 2.0, 0.01)
     x_c = cen + rad * np.cos(t)
     y_c = rad * np.sin(t)
+    fig= plt.figure()
     # img = plt.imread("mohr.png")    # TODO improve bg image
     plt.axhline(0, color='black')
     plt.axvline(0, color='black')
@@ -95,7 +96,7 @@ def mohr2d(sx, sy, txy,return_value = 'plot'):
     plt.annotate('$\sigma_2=$' + str(s2), xy=(cen - rad, 0), xytext=(cen - rad / 2, rad / 2),
                  arrowprops=dict(facecolor='red', shrink=0.01)
                  )
-    plt.annotate('$\\tau_{max}=$' + str(s3), xy=(cen, rad), xytext=(cen / .66, rad / 1.4),
+    plt.annotate('$\\tau_{max}=$' + str(s3), xy=(cen, rad), xytext=(cen / .75, rad / 1.4),
                  arrowprops=dict(facecolor='blue', shrink=0.01)
                  )
     plt.annotate('(0,0)', xy=(0, 0), xytext=(0, 0))
@@ -134,6 +135,7 @@ def mohr3d(sxx, syy, szz, sxy, sxz, syz):
     circle1 = pylab.Circle((circ[0][0], 0), radius=circ[0][1], color='red')
     circle2 = pylab.Circle((circ[1][0], 0), radius=circ[1][1], color='blue')
     circle3 = pylab.Circle((circ[2][0], 0), radius=circ[2][1], color='green')
+    fig = plt.figure()
     ax = pylab.gca()
     pylab.title('Mohr Circle for the requested 3D stress field')
     ax.add_patch(circle1)
