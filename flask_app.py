@@ -129,7 +129,8 @@ def vibres():
     x0 = float(request.form['x0'])
     v0 = float(request.form['v0'])
     result = vibration_response(k, m, ch, c, x0, v0)
-    return render_template('vibres.html', result=result)
+    title = 'Response of the requested vibrating system'
+    return render_template('plot_result.html', result=result,title= title)
 
 
 @app.route('/material', methods=['GET', 'POST'])
@@ -165,11 +166,13 @@ def mohr_2d():
     except ValueError:
         return 'The stress values need to be integers or floating point decimals'
     result = mohr2d(s11, s12, s22, 'plot')
-    res = mohr2d(s11, s12, s22, 'value')
+    res = mohr2d(s11, s12, s22, 'values')
     values = dict()
     values["Maximum Principal Stress"] = res[0]
     values["Minimum Principal Stress"] = res[1]
-    return render_template('mohr2d.html', stress2=result, values=values)
+    values["Max Shear Stress"] = res[2]
+    title = 'Mohr Circle for the requested 2D stress field'
+    return render_template('plot_result.html', result=result, title= title, values=values)
     # TODO exception handling,following func too
 
 
@@ -190,7 +193,8 @@ def mohr_3d():
     except ValueError:
         return 'The stress values need to be integers or floating point decimals'
     result = mohr3d(s11, s22, s33, s12, s13, s23)
-    return render_template('mohr3d.html', stress3=result)
+    title = 'Mohr Circle for the requested 3D stress field'
+    return render_template('plot_result.html', result=result,title= title)
 
 
 if __name__ == '__main__':

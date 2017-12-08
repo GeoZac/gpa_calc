@@ -51,27 +51,12 @@ def vibration_response(k, m, ch, c, x0, v0):
     ax1.set_xlabel('time , sec')
     ax1.set_ylabel('disp (mm)', color='b')
     ax2.set_ylabel('velocity (m/s)', color='g')
-    pylab.title('System Response')
     pylab.grid()
     # pylab.show(block=True)
     # pylab.savefig('vib.png')
     figfile = BytesIO()
     return return_img(figfile)
 
-
-'''
-To run as standalone module,
-replace the arguments sof the function call and uncomment line 45
-To save file on disk, uncomment line 46
-Syntax  vibration_response(
-                            stiffness,
-                            mass,
-                            system type, 1 = mass,spring    2 = mass,spring,damper
-                            damping coefficient,
-                            initial displacement,
-                            initial velocity,
-                            )
-'''
 
 
 def mohr2d(sx, sy, txy,return_value = 'plot'):
@@ -103,9 +88,8 @@ def mohr2d(sx, sy, txy,return_value = 'plot'):
     plt.axis('off')
     # TODO annotate max shear
     # pylab.show()
-    pylab.title('Mohr Circle for the requested 2D stress field')
     figfile = BytesIO()
-    if return_value == 'value':
+    if return_value == 'values':
         return s1, s2, s3
     return return_img(figfile)
 
@@ -137,7 +121,6 @@ def mohr3d(sxx, syy, szz, sxy, sxz, syz):
     circle3 = pylab.Circle((circ[2][0], 0), radius=circ[2][1], color='green')
     fig = plt.figure()
     ax = pylab.gca()
-    pylab.title('Mohr Circle for the requested 3D stress field')
     ax.add_patch(circle1)
     ax.add_patch(circle2)
     ax.add_patch(circle3)
