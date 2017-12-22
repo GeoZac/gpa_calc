@@ -5,9 +5,11 @@
 	<link rel="stylesheet" href="../static/style.css">	
 </head>
 
-<body>
+<body class="snow">
    <script type="text/javascript"
         src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+   <script type="text/javascript"
+        src="{{ url_for('static',filename='snowfall.jquery.min.js') }}"></script>
 <script type="text/javascript">
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
@@ -37,6 +39,8 @@
 
     $('input[name=a]').focus();
   });
+    document.body.className  = "snow";
+	$(document).snowfall({round : true, minSize: 5, maxSize:10, flakeCount : 300});
 
 </script>
 	<header id="header"><p>unConventionalMe</p></header>
@@ -45,16 +49,16 @@
 
 		<main id="center" class="column">
     <div id="info">
-    As the project had to expand and more pages had to be pushed in,I was forced to move the pages.You can still visit the old pages from the links at the left.Thanks for your support.
+    <center><p>Merry Christmas and a Happy New Year</p></center>
 		<div>
     <div id="sgpa">
     <h1>Cumulative GPA</h1>
     <p>Enter the SGPA values,leave result awaiting semesters as such </p>
     <form action="/sgpa" method="POST">
-      Semester 1 <input type="text" name="sgpa1" size="4" value="0"><br>
-      Semester 2 <input type="text" name="sgpa2" size="4" value="0"><br>
-      Semester 3 <input type="text" name="sgpa3" size="4" value="0"><br>
-      Semester 4 <input type="text" name="sgpa4" size="4" value="0"><br>
+      Semester 1  <input type="text" name="sgpa1" size="4" value="0"><br>
+      Semester 2  <input type="text" name="sgpa2" size="4" value="0"><br>
+      Semester 3  <input type="text" name="sgpa3" size="4" value="0"><br>
+      Semester 4  <input type="text" name="sgpa4" size="4" value="0"><br>
     </form>
     <p><a href=# id="calculate">Calculate CGPA</a>&nbsp;
     <span id="result"> </span>
@@ -87,10 +91,10 @@
 
 		<div id="right" class="column">
 			<h3>Changelog</h3>
-            <p>Added Mohr Circle function,Do check them out</p>
+      <p>Let it snow</p>
+      <p>Added Mohr Circle function,Do check them out</p>
 			<p>Change to latest <strong>f***ing</strong> revisions of KTU (13/10/2017)</p>
 			<p>We now serve the KTU portal,so that you don't have to fiddle with tabs</p>
-			<p>We are expanding,and so is the site,please bear with us</p>
 		</div>
 
 	</div>

@@ -69,7 +69,16 @@ body {
 	line-height: 1.5em;
 }
 p {
-	color: #00000;
+	color: #ffffff;
+}
+h1 {
+	color: #ffffff;
+}
+h3 {
+	color: #ffffff;
+}
+h4 {
+	color: #ffffff;
 }
 nav ul {
 	list-style-type: none;
@@ -77,30 +86,32 @@ nav ul {
 	padding: 0;
 }
 nav ul a {
-	color: darkgreen;
+	color: darkred;
 	text-decoration: none;
 }
 #footer {
 	font-size: large;
 	color: #FFFFFF;
 	padding: 0.3em;
-	background: #00796B;
+	background: #770000;
 }
 #header {
 	font-size: xx-large;
-	color: #FFFFFF;
 	padding: 0.2em;
-	background: #009688;
+	background: #990000;
 }
 #left {
-	background: #DAE9BC;
+	background: #c9302c;
 }
 #right {
-	background: #F7FDEB;
+	background: #c9302c;
 }
 #center {
-	background: #fff;
+	background: #c9302c;
 }
 #container .column {
 	padding-top: 1em;
+}
+#text {
+	color: #ffffff;
 }

@@ -4,7 +4,11 @@
     <title>unConventionalMe</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
-<body>
+<body class="snow">
+<script type="text/javascript"
+        src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+<script type="text/javascript"
+        src="{{ url_for('static',filename='snowfall.jquery.min.js') }}"></script>
 <script type="text/javascript">
 			function ShowHideDiv() {
 			    var state2 = document.getElementById("state2");
@@ -28,13 +32,15 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" src=
         "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	document.body.className  = "snow";
+	$(document).snowfall({round : true, minSize: 5, maxSize:10, flakeCount : 300});
 </script>
 <header id="header"><p>unConventionalMe</p></header>
 <div id="container">
     <main id="center" class="column">
-        <h4>Mohr Circle Constructor</h4>
-        Select the stress system from the dropdown list and input the stress values accordingly,and press the Draw Circle
-        button to draw the Mohr circle for the stress system<br>
+        <h1>Mohr Circle Constructor</h1>
+        <h3>Select the stress system from the dropdown list and input the stress values accordingly,and press the Draw Circle
+        button to draw the Mohr circle for the stress system</h3><br>
         <select name="state" id="state" onchange="ShowHideDiv()" style="border-left: 25 solid;padding-left: 15">
             <option value="none" selected>Select stress system</option>
             <option value="state2">2D</option>

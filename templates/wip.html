@@ -1,16 +1,28 @@
 <!doctype html>
 <title>Site Maintenance</title>
 <style>
-  body { text-align: center; padding: 150px; }
-  h1 { font-size: 50px; }
+  body { text-align: center; padding: 150px;
+      background: #ee0000;
+      color: #a94442 }
+  p { font-size: 50px;
+      color: #ffffff }
   body { font: 20px Helvetica, sans-serif; color: #333; }
   article { display: block; text-align: left; width: 650px; margin: 0 auto; }
   a { color: #dc8100; text-decoration: none; }
   a:hover { color: #333; text-decoration: none; }
 </style>
 
-<body>
+<body class="snow">
+<script type="text/javascript"
+        src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+<script type="text/javascript"
+        src="{{ url_for('static',filename='snowfall.jquery.min.js') }}"></script>
+<script type="text/javascript">
+        	document.body.className  = "snow";
+	$(document).snowfall({round : true, minSize: 5, maxSize:10, flakeCount : 300});
+</script>
     <div>
-        <p>Sorry for the inconvenience but we&rsquo;re either building this feature or performing some maintenance at the moment.we&rsquo;ll be back online soon!</p>
+        <p>Sorry for the inconvenience but we&rsquo;re either building this feature or performing some maintenance at the moment.we&rsquo;ll be back online soon!</p><br>
+        <p>Have a Merry Christmas</p>
     </div>
 </body>

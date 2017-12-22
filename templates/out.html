@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Result</title>
-</head>
-<body>
-<div id="container">
-            <div class="title">
-                <h1>GPA Calculated</h1>
-            </div>
-            <div id="content">
-                Great, your GPA for semester {{sem}} = <strong>{{gpa}}</strong> which is equivalent to {{per}} %
-            </div>
-</div>
-</body>
+  <head>    
+    <meta charset="UTF-8">    
+    <title>Result
+    </title>
+  </head>
+<body class="snow" style="background: #c9302c;">
+<script type="text/javascript"
+        src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+<script type="text/javascript"
+        src="{{ url_for('static',filename='snowfall.jquery.min.js') }}"></script>
+<script type="text/javascript">
+        	document.body.className  = "snow";
+	$(document).snowfall({round : true, minSize: 5, maxSize:10, flakeCount : 300});
+</script>
+    <div id="container">            
+      <div class="title">                
+        <center><h1>GPA Calculated</h1>
+        </center>            
+      </div>            
+      <div id="content">                
+        <center style="font-size: x-large;">Great, your GPA for semester {{sem}} = <strong>{{gpa}}</strong> which is equivalent to {{per}} % 
+        </center>            
+      </div>
+    </div>
+  </body>
 </html>
