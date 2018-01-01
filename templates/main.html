@@ -394,7 +394,7 @@
     <nav id="left" class="column">
 
         <h3>Pages</h3>
-        <ul><li><h3><a href="http://geozac.pythonanywhere.com/">Home</a></h3></li>
+        <ul><li><h3><a href="{{ url_for('welcome') }}">Home</a></h3></li>
             <li><a href="{{ url_for('vibdata') }}">Vibration Response</a></li>
             <li><a href="{{ url_for('wip') }}">Composite Laminae</a></li>
             <li><a href="{{ url_for('mohr') }}">Mohr Circles</a></li>

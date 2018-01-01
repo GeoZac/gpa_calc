@@ -5,27 +5,17 @@
     <title>unConventionalMe</title>
     <link rel="stylesheet" href="../static/frame.css">
 </head>
-
 <body>
-
 <header id="header"><p>unConventionalMe</p></header>
-
 <div id="container">
-
     <main id="center" class="column">
-        <iframe id="frame" src="https://app.ktu.edu.in" style="position: absolute;left: -110px;top: 1px;min-height: 500px;width: 126%;border: none;"></iframe>
+        <iframe id="frame" src="https://app.ktu.edu.in"
+                style="position: absolute;left: -110px;top: 1px;min-height: 500px;width: 126%;border: none;"></iframe>
     </main>
-
     <nav id="left" class="column" style="width: 70px;">
-        <ul>
-            <li><h3><a href="http://geozac.pythonanywhere.com/">Home</a></h3></li>
-        </ul>
+        <li><h3><a href="{{ url_for('welcome') }}">Home</a></h3></li>
     </nav>
-
-    
-
 </div>
-
 <div id="footer-wrapper">
     <footer id="footer"><p>Thanks to html.am for this subtle template</p></footer>
 </div>
