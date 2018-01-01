@@ -69,13 +69,13 @@ body {
 	line-height: 1.5em;
 }
 p {
-	color: #ffffff;
+	color: #212121;
 }
 h1 {
-	color: #ffffff;
+	color: #212121;
 }
 h3 {
-	color: #ffffff;
+	color: #212121;
 }
 h4 {
 	color: #ffffff;
@@ -86,32 +86,32 @@ nav ul {
 	padding: 0;
 }
 nav ul a {
-	color: darkred;
+	color: #009688;
 	text-decoration: none;
 }
 #footer {
 	font-size: large;
-	color: #FFFFFF;
+	color: #212121;
 	padding: 0.3em;
-	background: #770000;
+	background: #757575;
 }
 #header {
 	font-size: xx-large;
 	padding: 0.2em;
-	background: #990000;
+	background: #00796B;
 }
 #left {
-	background: #c9302c;
+	background: #B2DFDB;
 }
 #right {
-	background: #c9302c;
+	background: #B2DFDB;
 }
 #center {
-	background: #c9302c;
+	background: #ffffff;
 }
 #container .column {
 	padding-top: 1em;
 }
 #text {
-	color: #ffffff;
+	color: #FFFFFF;
 }

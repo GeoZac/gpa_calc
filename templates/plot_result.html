@@ -4,22 +4,12 @@
     <meta charset="UTF-8">
     <title>unConventional Projects</title>
 </head>
-<body class="snow" style="background: #c9302c;">
-<script type="text/javascript"
-        src="{{ url_for('static',filename='jquery.min.js') }}"></script>
-<script type="text/javascript"
-        src="{{ url_for('static',filename='snowfall.jquery.min.js') }}"></script>
-<script type="text/javascript">
-        	document.body.className  = "snow";
-	$(document).snowfall({round : true, minSize: 5, maxSize:10, flakeCount : 300});
-</script>
-<div id="container">
-            <div class="title" style="color: #ffffff;">
-                <h1 style="text-align: center">{{title}}</h1>
-                <center><img src="data:image/png;base64,{{ result }}" width="1000px"></center>
-                <br>
-            </div>
-
-</div>
+<body>
+    <div id="container">
+        <div class="title" style="color: #000000;">
+            <h1 style="text-align: center">{{title}}</h1>
+            <center><img src="data:image/png;base64,{{ result }}" width="1000px"></center><br>
+        </div>
+    </div>
 </body>
 </html>

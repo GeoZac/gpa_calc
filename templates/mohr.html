@@ -7,8 +7,6 @@
 <body class="snow">
 <script type="text/javascript"
         src="{{ url_for('static',filename='jquery.min.js') }}"></script>
-<script type="text/javascript"
-        src="{{ url_for('static',filename='snowfall.jquery.min.js') }}"></script>
 <script type="text/javascript">
 			function ShowHideDiv() {
 			    var state2 = document.getElementById("state2");
@@ -32,8 +30,6 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" src=
         "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-	document.body.className  = "snow";
-	$(document).snowfall({round : true, minSize: 5, maxSize:10, flakeCount : 300});
 </script>
 <header id="header"><p>unConventionalMe</p></header>
 <div id="container">

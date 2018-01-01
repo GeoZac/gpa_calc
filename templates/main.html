@@ -4,11 +4,9 @@
     <title>unConventionalMe</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
-<body class="snow">
+<body>
 <script type="text/javascript"
         src="{{ url_for('static',filename='jquery.min.js') }}"></script>
-<script type="text/javascript"
-        src="{{ url_for('static',filename='snowfall.jquery.min.js') }}"></script>
 <script type="text/javascript">
 			function ShowHideDiv() {
 			    var sem1 = document.getElementById("sem1");
@@ -20,8 +18,6 @@
 			    sem3.style.display = sem.value == "sem3" ? "block" : "none";
 			    sem4.style.display = sem.value == "sem4" ? "block" : "none";
 			}
-	document.body.className  = "snow";
-	$(document).snowfall({round : true, minSize: 5, maxSize:10, flakeCount : 300});
 </script>
 <header id="header"><p id="text">unConventionalMe</p></header>
 <div id="container">

@@ -6,22 +6,12 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 
-<body class="snow">
-<script type="text/javascript"
-        src="{{ url_for('static',filename='jquery.min.js') }}"></script>
-<script type="text/javascript"
-        src="{{ url_for('static',filename='snowfall.jquery.min.js') }}"></script>
-<script type="text/javascript">
-        	document.body.className  = "snow";
-	$(document).snowfall({round : true, minSize: 5, maxSize:10, flakeCount : 300});
-</script>
-
+<body>
 <header id="header"><p>unConventionalMe</p></header>
-
 <div id="container">
     <main id="center" class="column">
         <div style="text-align: left;">
-            <h3>Input the desired value to begin computation.The default values will be used in case they are not changed.</h2>
+            <h3>Input the desired value to begin computation.The default values will be used in case they are not changed.</h3>
         </div>
         <div id="content">
             <form method="POST">
