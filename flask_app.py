@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
-    return render_template('index.html')
+    return render_template('inactive.html')
 
 
 @app.route('/main', methods=['GET', 'POST'])
